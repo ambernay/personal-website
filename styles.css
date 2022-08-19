@@ -1,4 +1,5 @@
 /* *{border: 1px solid red;} */
+
 html, body{
     height: 100%;
     overflow: hidden;
@@ -13,33 +14,42 @@ html, body{
 }
 
 body{
-    background-color:#bbb;
+    background-color: #b3b3b3;
     font-family: Poiret One,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 #grid {
     display: grid;
     grid-template-areas:
-        "top top top"
         "header header header"
         "photo apps gd"
-        "bottom bottom bottom";
-    grid-template-rows: 25vh 25vh 25vh 25vh;
+        "footer footer footer";
+    grid-template-rows: 25vh 65vh 15vh;
     grid-template-columns: 33.33vw 33.33vw 33.33vw;
 }
 
 header {
     grid-area: header;
+    display: grid;
     font-size: 36px;
     font-style: normal;
     line-height: 1.42857143;
-    text-align: center;
-    color: #2a2a2a;
+    text-align: left;
+    padding: 15px;
+    color: #f2f2f2;
+    border-bottom: 1px solid  #f2f2f2;
+    margin-bottom: 25px;
 }
 
 .wrapper {
-    position: absolute;
+    display: grid;
+    grid-template-areas: 
+    "button"
+    "links";
+    grid-template-rows: 40% 60%;
+    grid-template-columns: 100%;
     text-align: center;
+    margin-bottom: 15px;
 } 
 
 #photo {
@@ -54,21 +64,52 @@ header {
     grid-area: gd;
 }
 
-button { 
+button {
+    grid-area: button;
     border: none;
-    background-color: none;
-    font-size: 24px;
+    background-color:#f2f2f2;
+    color: #b3b3b3;
+    font-family: Poiret One,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 30px;
+}
+
+button:hover {
+    border: 1px solid #b3b3b3;
 }
 
 .dropdown_links {
+    grid-row: links;
     display: grid;
     position: relative;
+    align-items: center;
 }
 
-a {
-    position: relative;
+a:link {
+    display: none;
+    font-size: 18px;
+    color: #f2f2f2;
+    text-decoration: none;
+    top: 50%;
+    left: 50%;
+    padding-top: 15px;
 }
 
-/* .wrapper:hover .dropdown_links{
-    background-color: red;
-} */
+a:hover{
+    font-style: italic;
+    font-size: 20px;
+    color: white;
+}
+
+.wrapper:hover  a {
+    display: block;
+}
+
+.footer {
+    grid-area: footer;
+    border-top: 1px solid  #f2f2f2;
+    margin-bottom: 25px;
+    padding: 5px;
+    text-align: center;
+    color: #f2f2f2;
+
+}
