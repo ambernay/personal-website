@@ -73,10 +73,6 @@ button {
     font-size: 30px;
 }
 
-button:hover {
-    border: 1px solid #b3b3b3;
-}
-
 .dropdown_links {
     grid-row: links;
     display: grid;
@@ -87,17 +83,26 @@ button:hover {
 a:link {
     display: none;
     font-size: 18px;
-    color: #f2f2f2;
+    color: #b3b3b3;
     text-decoration: none;
     top: 50%;
     left: 50%;
     padding-top: 15px;
 }
-
+/* hovering */
 a:hover{
     font-style: italic;
-    font-size: 20px;
-    color: white;
+    font-size: 24px;
+}
+
+.wrapper:hover button{
+    border: 1px solid #f2f2f2;
+    background-color: #b3b3b3;
+    color: #f2f2f2;
+}
+
+.wrapper:hover  .dropdown_links{
+    background-color: #f2f2f2;
 }
 
 .wrapper:hover  a {
