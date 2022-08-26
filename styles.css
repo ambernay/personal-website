@@ -24,14 +24,14 @@ body{
         "header header header"
         "apps photo gd"
         "footer footer footer";
-    grid-template-rows: 20vh 70vh 10vh;
+    grid-template-rows: 20vh 75vh 5vh;
     grid-template-columns: 33.33vw 33.33vw 33.33vw;
 }
 
 header {
     grid-area: header;
     display: grid;
-    font-size: 36px;
+    font-size: 5vmin;
     font-style: normal;
     line-height: 1.42857143;
     text-align: left;
@@ -39,7 +39,6 @@ header {
     padding: 15px;
     color: #f2f2f2;
     margin: 0 10px 25px 10px;
-    /* margin-bottom: 25px; */
     border-bottom: 1px solid #f2f2f2;
 }
 
@@ -100,24 +99,17 @@ button {
 }
 
 a {
-    font-size: 22px;
+    font-size: 3.5vmin;
     color: #f2f2f2;
     text-decoration: none;
-    padding-top: 25px;
+    text-align: center;
+    line-height: 100%;
+    padding: 10px 15px;
 }
 /*#region*/ /* hovering */
     /*#region*/ /* button hover and click styles */
-
-    button:hover {
-        opacity: 0.8;
-    }
-
-    button:hover > img {
-        opacity: 0.8;
-    }
-
-    button:focus {
-        opacity: 1.0px;
+    .wrapper:focus-within button{ 
+        opacity: 1.0;
         box-shadow: none;
         width: 20%;
         height: auto;
@@ -125,13 +117,17 @@ a {
         margin: auto;
     }
 
-    button:focus img {
-        opacity: 1.0;
-    }
-
-    button:focus ~ .dropdown_links {
+    .wrapper:focus-within  .dropdown_links {
         display: grid;
     }
+
+    button:hover, img:hover {
+        opacity: 0.8;
+    }
+
+    button:focus img {
+        opacity: 1.0;
+    } 
 
     a:hover{
         color:#e65c00;
@@ -141,14 +137,14 @@ a {
         color:#2a2a2a;
     }
     
-    .dropdown_links a:target ~ button {
+    /* .dropdown_links a:target ~ button {
         opacity: 1.0px;
         box-shadow: none;
         width: 20%;
         height: auto;
         padding: 20%;
         margin: auto;
-    }
+    } */
 
     /*#endregion*/
 /*#endregion*/
