@@ -16,6 +16,7 @@ html, body{
 body{
     background-color: #a6a6a6;
     font-family: Poiret One,Helvetica Neue,Helvetica,Arial,sans-serif;
+    touch-action: none;
 }
 
 #grid {
@@ -75,7 +76,7 @@ img {
 button {
     display: grid;
     grid-area: button;
-    position:relative;
+    position:absolute;
     border: none;
     border-radius: 50%;
     width: 40%;
@@ -136,15 +137,21 @@ a {
     a:active a:visited{
         color:#2a2a2a;
     }
-    
-    /* .dropdown_links a:target ~ button {
-        opacity: 1.0px;
-        box-shadow: none;
-        width: 20%;
-        height: auto;
-        padding: 20%;
-        margin: auto;
-    } */
 
     /*#endregion*/
+
+    @media (hover: none) and (pointer:coarse){
+        .wrapper:focus-within button{ 
+            opacity: 1.0;
+            box-shadow: none;
+            width: 20%;
+            height: auto;
+            padding: 20%;
+            margin: auto;
+        }
+    
+        .wrapper:focus-within  .dropdown_links {
+            display: grid;
+        }
+    }
 /*#endregion*/
