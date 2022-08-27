@@ -3,6 +3,7 @@
 html, body{
     height: 100%;
     overflow: hidden;
+    touch-action: none;
 }
 #root{
     position: absolute;
@@ -16,7 +17,6 @@ html, body{
 body{
     background-color: #a6a6a6;
     font-family: Poiret One,Helvetica Neue,Helvetica,Arial,sans-serif;
-    touch-action: none;
 }
 
 #grid {
@@ -68,7 +68,6 @@ header {
 }
 
 img {
-    /* background-color: transparent; */
     width: 70%;
     position: absolute;
 }
@@ -109,38 +108,16 @@ a {
 }
 /*#region*/ /* hovering */
     /*#region*/ /* button hover and click styles */
-    .wrapper:focus-within button{ 
-        opacity: 1.0;
-        box-shadow: none;
-        width: 20%;
-        height: auto;
-        padding: 20%;
-        margin: auto;
-    }
-
-    .wrapper:focus-within  .dropdown_links {
-        display: grid;
-    }
-
-    button:hover, img:hover {
-        opacity: 0.8;
-    }
-
-    button:focus img {
-        opacity: 1.0;
-    } 
-
-    a:hover{
-        color:#e65c00;
-    }
-    
-    a:active a:visited{
-        color:#2a2a2a;
-    }
-
-    /*#endregion*/
-
     @media (hover: none) and (pointer:coarse){
+
+        button:hover, img:hover {
+            opacity: 0.8;
+        }
+
+        a:hover{
+            color:#e65c00;
+        }
+
         .wrapper:focus-within button{ 
             opacity: 1.0;
             box-shadow: none;
@@ -149,9 +126,18 @@ a {
             padding: 20%;
             margin: auto;
         }
-    
+
         .wrapper:focus-within  .dropdown_links {
             display: grid;
         }
+
+        button:focus img {
+            opacity: 1.0;
+        } 
+        
+        a:active a:visited{
+            color:#2a2a2a;
+        }
     }
+    /*#endregion*/
 /*#endregion*/
