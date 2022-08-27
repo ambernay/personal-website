@@ -38,7 +38,7 @@ header {
     text-align: left;
     align-items: center;
     padding: 15px;
-    color: #f2f2f2;
+    color: red;
     margin: 0 10px 25px 10px;
     border-bottom: 1px solid #f2f2f2;
 }
@@ -108,7 +108,7 @@ a {
 }
 /*#region*/ /* hovering */
     /*#region*/ /* button hover and click styles */
-    @media (hover: none) and (pointer:coarse){
+    @media (pointer:coarse){
 
         button:hover, img:hover {
             opacity: 0.8;
