@@ -1,3 +1,4 @@
+/* *{border: 1px solid red;} */
 
 html, body{
     height: 100%;
@@ -31,7 +32,7 @@ body{
 header {
     grid-area: header;
     display: grid;
-    font-size: ;
+    font-size: 5vmin;
     font-style: normal;
     line-height: 1.42857143;
     text-align: left;
@@ -58,7 +59,11 @@ header {
 img {
     width: 70%;
     position: absolute;
-    align-self: center;
+    align-self: center; /*for when button is active*/
+    /*for centering image on safari browsers*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
 }
 
 button {
@@ -104,6 +109,7 @@ a {
         opacity: 1.0;
         box-shadow: none;
         height: auto;
+        text-align: center;
         margin: auto;
     }
 
@@ -148,6 +154,10 @@ a {
             height: auto;
             padding: 13vh;
             align-items: end;
+            /* to center on safari */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);  
         }
     }
     /*#endregion*/
@@ -190,7 +200,7 @@ a {
 
         #grid:focus-within button { 
             grid-column: 1;
-            justify-self: start;
+            justify-self: center;
             margin-left: 6%;
         }
 
@@ -239,6 +249,20 @@ a {
 
         header {font-size: 8vw;}
     }
+    /*#endregion*/ 
+
+    /*#region*/ /* height queries */
+    @media (max-height:530px){
+        button {
+            width: 25vh;
+            height:auto;
+            padding: 25vh;
+            align-items: center;
+        }
+        a {font-size: 3.5vmin;}
+    }
+
     /*#endregion*/
+
     /*#endregion*/
 /*#endregion*/

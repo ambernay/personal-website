@@ -11,14 +11,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
 
+    <script>
+        function focusElement(){
+           this.focus();
+           console.log(document.activeElement)
+        }
+   </script>
 </head>
 <body>
     <div id="root">
         <div id="grid">
             <header>Ambernay Trotter</header>
 
-            <div id="photo" class="wrapper">
+             <div id="apps" class="wrapper" tabindex="0">
                 <button class="button">
+                    <img src="icons/computer.png">
+                </button>
+                <div class="dropdown_links">
+                    <a href="https://ambermoo.github.io/Crossword2/">crossword</a>
+                    <a href="#">love tester</a>
+                </div>
+            </div>
+
+            <div id="photo" class="wrapper" tabindex="0">
+                <button  class="button" type="button" onclick="focusElement()">
                     <img src="icons/camera.png">
                 </button>
                 <div class="dropdown_links">
@@ -29,18 +45,8 @@
                     <a href="http://ambernaytrotter.com/photo/photoshop">photoshop</a>
                 </div>
             </div>
-            
-            <div id="apps" class="wrapper">
-                <button class="button">
-                    <img src="icons/computer.png">
-                </button>
-                <div class="dropdown_links">
-                    <a href="https://ambermoo.github.io/Crossword2/">crossword</a>
-                    <a href="#">love tester</a>
-                </div>
-            </div>
-            
-            <div id="gd" class="wrapper">
+        
+            <div id="gd" class="wrapper" tabindex="0">
                 <button class="button">
                     <img src="icons/pen.png">
                 </button>
