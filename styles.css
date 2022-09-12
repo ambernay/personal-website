@@ -3,7 +3,6 @@
 html, body{
     height: 100%;
     overflow: hidden;
-    touch-action: none;
 }
 #root{
     position: absolute;
@@ -11,8 +10,13 @@ html, body{
     bottom: 0;
     left: 0;
     right: 0;
-    overflow: auto;
+    /* overflow: auto; */
 }
+
+/* removes tabindex styles */
+*[tabindex]:focus {
+    outline: none;
+} 
 
 body{
     background-color: #a6a6a6;
@@ -43,6 +47,19 @@ header {
     border-bottom: 1px solid #f2f2f2;
 }
 
+.btn_labels {
+    display:none;
+    position: absolute;
+    font-family: Poiret One,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 5vh;
+    line-height: 8vh;
+    color: #f2f2f2;
+    /*for centering image on safari browsers*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+    margin: 0;
+}
        
 #photo {
     grid-area: photo;
@@ -83,62 +100,77 @@ button {
 }
 
 .dropdown_links {
-    grid-row: links;
+    grid-area: links;
     display: none;
     position: relative;
     width: 100%;
-    justify-items: center;
-    align-content: center;
-    overflow: scroll;
 }
 
 a {
     display: grid;
-    font-size: 3.5vh;
+    font-size: 4vmin;
     color: #f2f2f2;
     text-decoration: none;
     text-align: center;
-    line-height: 100%;
-    padding: 5% 10%;
-    pointer-events: auto;
+    align-items: center;
+    line-height: 5vh;
+    /* pointer-events: auto; */
 }
 /*#region*/ /* hovering */
     /*#region*/ /* button hover and click styles */
-  
-    .wrapper:focus-within button{ 
+
+    /* selects parent on button focus - alters button styles */
+    .wrapper:focus-within button { 
         opacity: 1.0;
         box-shadow: none;
         height: auto;
         text-align: center;
-        margin: auto;
+        margin-top: 0;
     }
-
-    .wrapper:focus-within  .dropdown_links {
+    /* selects parent on button focus - alters link wrappper */
+    .wrapper:focus-within .dropdown_links {
         display: grid;
     }
-
+    /* alters img styles on button focus */
     button:focus img {
         opacity: 1.0;
     } 
 
-    a:hover{
-        color:#e65c00;
-    }
-    
-    a:active a:visited{
-        color:#2a2a2a;
-    }
+        /*#region*//* hover styles */
+
+            button:hover {
+                border: 5px solid #f2f2f2;
+                background-color: #a6a6a6;
+                background-color: hsla(0, 0%, 95%, 40%); 
+            }
+
+            button:hover img{
+                visibility: hidden;
+            }
+
+            button:hover h1 {
+                display: block;
+            }
+
+            a:hover{
+                color:#e65c00;
+            }
+            
+            a:active a:visited{
+                color:#2a2a2a;
+            }
+        /*#endregion*/
     /*#endregion*/
 
     /*#region*/ /* landscape */
     @media (orientation:landscape){
+
         .wrapper {
             display: grid;
             grid-template-areas: 
-            "button"
-            "links";
-            grid-template-rows: 40% 60%;
-            grid-template-columns: 100%;
+            "button";
+            grid-template-rows: 100%;
+            grid-template-columns: 33.33vw;
             position: relative;
             justify-items: center;
             margin-bottom: 10%;
@@ -148,16 +180,32 @@ a {
             grid-area: button;
         }
 
-        /* on focus */
+    /* on focus */  
+
+        /* selects and alters button parent on button focus */
+        .wrapper:focus-within {
+            display: grid;
+            grid-template-areas: 
+            "button"
+            "links";
+            grid-template-rows: 40% 60%;
+            grid-template-columns: 33.33vw;
+        }
+        /* selects parent on button focus - alters button styles */
         .wrapper:focus-within button{ 
             width: 13vh;
             height: auto;
             padding: 13vh;
-            align-items: end;
+            align-items: baseline;
             /* to center on safari */
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);  
+        }
+        /* selects parent on button focus - alters link wrapper */
+        .wrapper:focus-within .dropdown_links {
+            grid-area: links;
+            overflow: auto;
         }
     }
     /*#endregion*/
@@ -179,11 +227,10 @@ a {
         .wrapper {
             display: grid;
             grid-template-rows: 100%;
-            grid-template-columns: 50vw 50w;
+            grid-template-columns: 50vw 50vw;
             position: relative;
             justify-items: center;
             align-items: center;
-            margin-bottom: 0px;
         }
 
         button {
@@ -196,19 +243,24 @@ a {
             margin-top: 0;
         }
 
+        a{font-size: 4vh}
+
     /* on focus */
 
         #grid:focus-within button { 
-            grid-column: 1;
-            justify-self: center;
-            margin-left: 6%;
+            grid-column: 1/2;
+            margin-left: 10%;
         }
 
-        .wrapper:focus-within  .dropdown_links {
+        .wrapper:focus-within .dropdown_links {
             display: grid;
             grid-row: 1;
             grid-column: 2;
             align-items: center;
+        }
+        /* spacing links in portrait mode */
+        .wrapper:focus-within .dropdown_links a {
+            padding: 5%;
         }
     }
 
@@ -229,6 +281,8 @@ a {
             height: auto;
             padding: 13vh;
         }
+
+        a {font-size: 4vh;}
     }
 
     /* cellphone width and smaller */
@@ -259,7 +313,7 @@ a {
             padding: 25vh;
             align-items: center;
         }
-        a {font-size: 3.5vmin;}
+        a {font-size: 4vw;}
     }
 
     /*#endregion*/
