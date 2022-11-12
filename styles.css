@@ -1,17 +1,18 @@
 /* *{border: 1px solid red;} */
 
-html, body{
-    height: 100%;
-    overflow: hidden;
-}
-#root{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    /* overflow: auto; */
-}
+/* #region *//*prevents page from moving*/
+    html, body{
+        height: 100%;
+        overflow: hidden;
+    }
+    #root{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+/* #endregion *//* prevents page from moving*/
 
 /* removes tabindex styles */
 *[tabindex]:focus {
@@ -306,11 +307,26 @@ a {
     /*#endregion*/ 
 
     /*#region*/ /* height queries */
-    @media (max-height:530px){
+
+    @media (max-height: 635px) and (max-width: 545px){
+
+        #grid {
+            display: grid;
+            grid-template-areas:
+                "header"
+                "apps" 
+                "photo" 
+                "gd";
+            grid-template-rows: 16vh 27vh 27vh 27vh;
+            grid-template-columns: 100%;
+        }
+    }
+    @media (max-height: 530px) and (max-width: 545px){
+
         button {
-            width: 25vh;
+            width: 12vh;
             height:auto;
-            padding: 25vh;
+            padding: 12vh;
             align-items: center;
         }
         a {font-size: 4vw;}
