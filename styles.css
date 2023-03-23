@@ -13,6 +13,19 @@
         right: 0;
     }
 /* #endregion *//* prevents page from moving*/
+/* #region *//* defining variables */
+
+:root {
+    /* color */
+    --dark-gray:#2a2a2a;
+    --light-gray:#a6a6a6;
+    --light-gray-opacity: hsla(0, 0%, 95%, 40%);
+    --off-white:#f2f2f2;
+    --orange:#e65c00;
+    /* sizes */
+    --button-size: 38%;
+}
+/* #endregion *//* defining variables */ 
 
 /* removes tabindex styles */
 *[tabindex]:focus {
@@ -43,9 +56,9 @@ header {
     text-align: left;
     align-items: center;
     padding: 15px;
-    color: #f2f2f2;
+    color: var(--off-white);
     margin: 0 10px 25px 10px;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid var(--off-white);
 }
 
 .btn_labels {
@@ -54,7 +67,7 @@ header {
     font-family: Poiret One,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-size: 5vh;
     line-height: 8vh;
-    color: #f2f2f2;
+    color: var(--off-white);
     /*for centering image on safari browsers*/
     top: 50%;
     left: 50%;
@@ -89,14 +102,14 @@ button {
     position:absolute;
     border: none;
     border-radius: 50%;
-    width: 38%;
+    width: var(--button-size);
     height: auto;
-    padding: 38%;
+    padding: var(--button-size);
     margin-top: 10%;
     justify-items: center;
     align-items: center;
-    background-color:#f2f2f2;
-    box-shadow: 5px 5px 5px #2a2a2a;;
+    background-color:var(--off-white);
+    box-shadow: 5px 5px 5px var(--dark-gray);;
     pointer-events: auto;
 }
 
@@ -112,7 +125,7 @@ button {
 a {
     display: grid;
     font-size: 4vmin;
-    color: #f2f2f2;
+    color: var(--off-white);
     text-decoration: none;
     text-align: center;
     align-items: center;
@@ -143,9 +156,9 @@ a {
         /*#region*//* hover styles */
 
             button:hover {
-                border: 5px solid #f2f2f2;
-                background-color: #a6a6a6;
-                background-color: hsla(0, 0%, 95%, 40%); 
+                border: 5px solid var(--off-white);
+                background-color: var(--light-gray);
+                background-color: var(--light-gray-opacity); 
             }
 
             button:hover img{
@@ -157,11 +170,11 @@ a {
             }
 
             a:hover{
-                color:#e65c00;
+                color:var(--orange);
             }
             
             a:active a:visited{
-                color:#2a2a2a;
+                color:var(--dark-gray);
             }
         /*#endregion*/
     /*#endregion*/
